@@ -281,6 +281,7 @@ void setup() {
   //  Sets bitrate for data transmition                                      Ustawia szybkość transmisji danych w bitach na sekundę
   Serial.begin(115200);
   
+  
   // Allocation of timers for proper functioning
   // of the ESP32Servo library
   ESP32PWM::allocateTimer(0);
@@ -291,7 +292,7 @@ void setup() {
   // Initialization of the Ps3 Controller Host library
   // The 'attach' functions add callback functions
   // to the respective events
-  Ps3.begin();
+  Ps3.begin("f0:f0:02:21:4e:f2");
   Ps3.attachOnConnect(connected);
   Ps3.attachOnDisconnect(disconnected);
   Ps3.attach(notify);
